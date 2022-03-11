@@ -79,7 +79,6 @@ public class SinhVienDAO {
                 PreparedStatement pstm = conn.prepareStatement(sql);
         ){
             pstm.setString(1, maSV);
-
             return pstm.executeUpdate() > 0;
         }
     }
@@ -93,9 +92,7 @@ public class SinhVienDAO {
                 Statement stm = conn.createStatement();
                 ) {
             ArrayList<SinhVienDTO> listSinhVien = new ArrayList<SinhVienDTO>();
-
             ResultSet rs = stm.executeQuery(sql);
-
             while(rs.next()) {
                 SinhVienDTO sinhVienDTO = new SinhVienDTO();
                 sinhVienDTO.setID(rs.getString("MaSV").trim());
@@ -107,7 +104,6 @@ public class SinhVienDAO {
 
                 listSinhVien.add(sinhVienDTO);
             }
-
             rs.close();
             return listSinhVien;
         }
